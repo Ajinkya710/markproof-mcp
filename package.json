@@ -39,7 +39,8 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "bundle": "tsup --config tsup.mcpb.config.ts && mcpb pack mcpb markproof-mcp.mcpb"
+    "bundle": "tsup --config tsup.mcpb.config.ts && mcpb pack mcpb markproof-mcp.mcpb",
+    "bundle:smithery": "npm run bundle && node scripts/smithery-bundle.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@anthropic-ai/mcpb": "^2.1.2",
     "@types/node": "^26.6.5",
+    "fflate": "^0.8.2",
     "markproof": "^0.3.0",
     "tsup": "^9.0.0",
     "typescript": "^5.9.3",

@@ -73,6 +73,7 @@ npm install
 npm test          # tools against a fake client, no network
 npm run build     # dist/ for npm
 npm run bundle    # markproof-mcp.mcpb (one-file server + manifest in mcpb/)
+npm run bundle:smithery   # same plus tool input schemas, which Smithery needs and the MCPB spec rejects
 ```
 
 The server is a thin layer over the [`markproof`](https://www.npmjs.com/package/markproof) SDK. Issues and PRs welcome.
