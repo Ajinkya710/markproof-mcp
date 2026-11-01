@@ -4,12 +4,27 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { Markproof, MarkproofError } from "markproof";
 
-export const VERSION = "0.3.1";
+export const VERSION = "0.3.2";
 
 /** Matches the API's own limit for URL input; direct uploads are capped lower by the host (~4.5 MB). */
 const MAX_BYTES = 25 * 1024 * 1024;
 
 type Client = Pick<Markproof, "mark" | "verify" | "getAsset">;
+
+export const MISSING_KEY_MESSAGE =
+  "MARKPROOF_API_KEY is not set. Create a key at https://markproof.co/dashboard and add it to this server's env.";
+
+/**
+ * Stands in for the SDK client when no key is configured, so the server
+ * still starts and lists its tools (MCP directories check this), and each
+ * tool call explains what's missing instead of the process exiting.
+ */
+export function missingKeyClient(): Client {
+  const reject = async (): Promise<never> => {
+    throw new Error(MISSING_KEY_MESSAGE);
+  };
+  return { mark: reject, verify: reject, getAsset: reject };
+}
 
 async function loadFile(path: string): Promise<{ data: Buffer; filename: string; absolute: string }> {
   const absolute = resolve(path);

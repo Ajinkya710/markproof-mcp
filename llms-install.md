@@ -32,7 +32,7 @@ Requires Node.js 18 or newer (`node --version`).
 
 ## 3. Check it works
 
-The server exposes three tools: `mark_file`, `verify_file` and `get_asset`. To test without using quota, call `get_asset` with `00000000-0000-4000-8000-000000000000`: a `404` error means the server started and the key was accepted; `Markproof API error (401)` means the key is wrong. If the server exits at once with "set MARKPROOF_API_KEY", the `env` entry is missing.
+The server exposes three tools: `mark_file`, `verify_file` and `get_asset`. To test without using quota, call `get_asset` with `00000000-0000-4000-8000-000000000000`: a `404` error means the server started and the key was accepted; `Markproof API error (401)` means the key is wrong. If a call returns "MARKPROOF_API_KEY is not set", the `env` entry is missing.
 
 ## Tools
 

@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "markproof",
   "display_name": "Markproof",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Watermark and C2PA-sign AI-generated images and audio for EU AI Act Article 50, and verify files.",
   "long_description": "Lets AI agents mark the images and audio they generate, as the EU AI Act's Article 50 requires: an invisible watermark (TrustMark for images, AudioSeal for audio) plus a signed C2PA manifest (Content Credentials), in one tool call. Verify any file's watermark and C2PA signature, by path or URL. Files are processed in the EU. 250 free calls a month.",
   "author": { "name": "Markproof", "email": "support@markproof.co", "url": "https://markproof.co" },

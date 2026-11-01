@@ -5,7 +5,7 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import { describe, expect, it } from "vitest";
 import { MarkproofError } from "markproof";
-import { createServer, defaultOutputPath } from "./server";
+import { createServer, defaultOutputPath, MISSING_KEY_MESSAGE, missingKeyClient } from "./server";
 
 type Fake = Parameters<typeof createServer>[0];
 
@@ -128,6 +128,15 @@ describe("markproof MCP server", () => {
     const res = await (await connect(fakeClient())).callTool({ name: "verify_file", arguments: { path: "/no/such/file.png" } });
     expect(res.isError).toBe(true);
     expect(JSON.stringify(res.content)).toContain("No file at");
+  });
+
+  it("without a key, lists tools and explains the missing key on each call", async () => {
+    const mcp = await connect(missingKeyClient());
+    const { tools } = await mcp.listTools();
+    expect(tools.map((t) => t.name).sort()).toEqual(["get_asset", "mark_file", "verify_file"]);
+    const res = await mcp.callTool({ name: "get_asset", arguments: { asset_id: "a" } });
+    expect(res.isError).toBe(true);
+    expect(JSON.stringify(res.content)).toContain(MISSING_KEY_MESSAGE);
   });
 
   it("verify_file passes a url through instead of reading a file", async () => {

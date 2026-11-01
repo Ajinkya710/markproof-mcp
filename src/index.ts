@@ -5,14 +5,14 @@
  */
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Markproof } from "markproof";
-import { createServer } from "./server";
+import { createServer, MISSING_KEY_MESSAGE, missingKeyClient } from "./server";
 
 const apiKey = process.env.MARKPROOF_API_KEY;
 if (!apiKey) {
-  // stderr only: stdout carries the MCP protocol.
-  console.error("markproof-mcp: set MARKPROOF_API_KEY (create one at https://markproof.co/dashboard).");
-  process.exit(1);
+  // stderr only: stdout carries the MCP protocol. Keep running so clients and
+  // directories can still list the tools; each call returns this message.
+  console.error(`markproof-mcp: ${MISSING_KEY_MESSAGE}`);
 }
 
-const client = new Markproof({ apiKey, baseUrl: process.env.MARKPROOF_BASE_URL });
+const client = apiKey ? new Markproof({ apiKey, baseUrl: process.env.MARKPROOF_BASE_URL }) : missingKeyClient();
 await createServer(client).connect(new StdioServerTransport());
