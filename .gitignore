@@ -1,0 +1,8 @@
+node_modules/
+dist/
+mcpb/server/
+*.mcpb
+*.tsbuildinfo
+.env
+mcp-publisher.exe
+.mcpregistry_*

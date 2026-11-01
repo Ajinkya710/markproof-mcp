@@ -1,0 +1,62 @@
+{
+  "name": "markproof-mcp",
+  "version": "0.3.1",
+  "description": "MCP server for Markproof — lets AI agents watermark and C2PA-sign the images and audio they generate, and verify files.",
+  "mcpName": "io.github.Ajinkya710/markproof",
+  "license": "MIT",
+  "author": "Markproof <support@markproof.co>",
+  "homepage": "https://markproof.co/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajinkya710/markproof-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ajinkya710/markproof-mcp/issues",
+    "email": "support@markproof.co"
+  },
+  "keywords": [
+    "eu-ai-act",
+    "article-50",
+    "watermark",
+    "c2pa",
+    "content-credentials",
+    "ai-generated",
+    "provenance",
+    "mcp",
+    "model-context-protocol",
+    "ai-agents"
+  ],
+  "type": "module",
+  "bin": {
+    "markproof-mcp": "./dist/index.js"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "bundle": "tsup --config tsup.mcpb.config.ts && mcpb pack mcpb markproof-mcp.mcpb"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^26.6.5",
+    "markproof": "^0.3.0",
+    "tsup": "^9.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

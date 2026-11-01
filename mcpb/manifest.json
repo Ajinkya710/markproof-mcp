@@ -1,0 +1,43 @@
+{
+  "manifest_version": "0.3",
+  "name": "markproof",
+  "display_name": "Markproof",
+  "version": "0.3.1",
+  "description": "Watermark and C2PA-sign AI-generated images and audio for EU AI Act Article 50, and verify files.",
+  "long_description": "Lets AI agents mark the images and audio they generate, as the EU AI Act's Article 50 requires: an invisible watermark (TrustMark for images, AudioSeal for audio) plus a signed C2PA manifest (Content Credentials), in one tool call. Verify any file's watermark and C2PA signature, by path or URL. Files are processed in the EU. 250 free calls a month.",
+  "author": { "name": "Markproof", "email": "support@markproof.co", "url": "https://markproof.co" },
+  "homepage": "https://markproof.co",
+  "documentation": "https://markproof.co/docs",
+  "support": "https://github.com/Ajinkya710/markproof-mcp/issues",
+  "repository": { "type": "git", "url": "https://github.com/Ajinkya710/markproof-mcp" },
+  "license": "MIT",
+  "icon": "icon.png",
+  "keywords": ["eu-ai-act", "watermark", "c2pa", "content-credentials", "provenance"],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": { "MARKPROOF_API_KEY": "${user_config.api_key}" }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Markproof API key",
+      "description": "From markproof.co/dashboard (250 free calls a month).",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "tools": [
+    { "name": "mark_file", "description": "Watermark and C2PA-sign a local image or audio file; writes <name>.marked.png/.wav beside it." },
+    { "name": "verify_file", "description": "Check a file (by path or URL) for a Markproof watermark and a C2PA manifest." },
+    { "name": "get_asset", "description": "Look up a file you marked by its asset id." }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": { "node": ">=18.0.0" }
+  }
+}

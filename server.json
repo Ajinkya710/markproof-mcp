@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Ajinkya710/markproof",
+  "title": "Markproof",
+  "description": "Watermark and C2PA-sign AI-generated images and audio for EU AI Act Article 50, and verify files.",
+  "websiteUrl": "https://markproof.co/docs",
+  "version": "0.3.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "markproof-mcp",
+      "version": "0.3.1",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "MARKPROOF_API_KEY",
+          "description": "API key from markproof.co/dashboard (250 free calls a month).",
+          "isRequired": true,
+          "isSecret": true,
+          "placeholder": "lt_live_..."
+        }
+      ]
+    }
+  ]
+}
