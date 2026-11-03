@@ -4,6 +4,8 @@
 
 [![npm](https://img.shields.io/npm/v/markproof-mcp)](https://www.npmjs.com/package/markproof-mcp) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.Ajinkya710%2Fmarkproof-blue)](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.Ajinkya710/markproof)
 
+[![Markproof MCP server](https://mcprush.com/badge/markproof-mcp/card.svg)](https://mcprush.com/to/markproof-mcp?ref=badge)
+
 An [MCP](https://modelcontextprotocol.io) server that lets AI agents mark the images and audio they generate for the EU AI Act's Article 50, using [Markproof](https://markproof.co): an invisible watermark plus a signed C2PA manifest (Content Credentials), and verification of any file.
 
 > **Is your AI output Article 50-ready?** Drop a file into the [free checker](https://markproof.co/check) (no signup) to see whether it carries a watermark and signed Content Credentials.
