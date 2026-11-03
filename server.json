@@ -4,12 +4,12 @@
   "title": "Markproof",
   "description": "Watermark and C2PA-sign AI-generated images and audio for EU AI Act Article 50, and verify files.",
   "websiteUrl": "https://markproof.co/docs",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "markproof-mcp",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         {

@@ -1,7 +1,7 @@
 {
   "name": "markproof-mcp",
-  "version": "0.3.2",
-  "description": "MCP server for Markproof — lets AI agents watermark and C2PA-sign the images and audio they generate, and verify files.",
+  "version": "0.3.3",
+  "description": "MCP server for Markproof — lets AI agents watermark and C2PA-sign the images and audio they generate, and verify files. mcprush.com-50d862b739f1a0d2b6be422a",
   "mcpName": "io.github.Ajinkya710/markproof",
   "license": "MIT",
   "author": "Markproof <support@markproof.co>",

@@ -4,7 +4,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { Markproof, MarkproofError } from "markproof";
 
-export const VERSION = "0.3.2";
+export const VERSION = "0.3.3";
 
 /** Matches the API's own limit for URL input; direct uploads are capped lower by the host (~4.5 MB). */
 const MAX_BYTES = 25 * 1024 * 1024;
